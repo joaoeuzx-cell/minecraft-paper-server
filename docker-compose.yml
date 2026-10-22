@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  minecraft-bedrock:
+    image: itzg/minecraft-bedrock-server:latest
+    container_name: minecraft-bedrock
+    restart: unless-stopped
+    ports:
+      - "19132:19132/udp"
+    environment:
+      EULA: "TRUE"
+      VERSION: "LATEST"
+      SERVER_NAME: "Meu Servidor Bedrock"
+      GAMEMODE: "survival"
+      DIFFICULTY: "normal"
+      MAX_PLAYERS: "10"
+      LEVEL_NAME: "world"
+      ONLINE_MODE: "true"
+    volumes:
+      - ./data:/data
